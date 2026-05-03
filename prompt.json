@@ -1,20 +1,12 @@
-[
-  {
-    "role": "system",
-    "content": {{ system_message | dump }}
-  },
-  {% for completion in _conversation %}
-  {
-    "role": "user",
-    "content": {{ completion.input | dump }}
-  },
-  {
-    "role": "assistant",
-    "content": {{ completion.output | dump }}
-  },
-  {% endfor %}
-  {
-    "role": "user",
-    "content": {{ message | dump }}
-  }
-]
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an AI agent. Always respond ONLY with one of these function names based on user intent: getIdentities, createNewEthereumIdentity, linkHumanToAgent. Do not explain anything."
+    },
+    {
+      "role": "user",
+      "content": "{{message}}"
+    }
+  ]
+}
