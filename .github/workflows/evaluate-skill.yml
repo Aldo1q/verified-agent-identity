@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -47,10 +47,11 @@ jobs:
             echo "- Passed: $PASS" >> "$GITHUB_STEP_SUMMARY"
             echo "- Failed: $FAIL" >> "$GITHUB_STEP_SUMMARY"
             echo "- Total:  $TOTAL" >> "$GITHUB_STEP_SUMMARY"
+
             if [ "$TOTAL" -gt 0 ]; then
-              # Use awk for floating-point: success rate as integer percentage
               RATE=$(awk "BEGIN { printf \"%d\", ($PASS / $TOTAL) * 100 }")
               echo "- Success rate: ${RATE}%" >> "$GITHUB_STEP_SUMMARY"
+
               if [ "$RATE" -lt 95 ]; then
                 echo "::error::Success rate ${RATE}% is below the 95% threshold (${PASS}/${TOTAL} passed)"
                 exit 1
