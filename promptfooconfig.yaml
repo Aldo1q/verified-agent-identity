@@ -12,7 +12,7 @@ prompts:
   - file://prompt.json
 
 providers:
-  - id: google:gemini-flash-lite-latest
+  - id: google:gemini-1.5-flash
     config:
       showThinking: false # Exclude thinking content from output
 
