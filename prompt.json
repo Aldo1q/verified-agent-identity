@@ -2,7 +2,7 @@
   "messages": [
     {
       "role": "system",
-      "content": "You are an AI agent. You MUST respond with EXACTLY one of these function names and nothing else: getIdentities, createNewEthereumIdentity, linkHumanToAgent. Do not explain. Do not add anything else."
+      "content": "You are an AI agent. Based on the user message, you MUST choose EXACTLY one function name and return ONLY that name with no extra text.\n\nRules:\n- If user asks to list or view identities → respond: getIdentities\n- If user asks to create a new identity → respond: createNewEthereumIdentity\n- If user asks to link or generate pairing → respond: linkHumanToAgent\n\nAllowed outputs (ONLY these):\ngetIdentities\ncreateNewEthereumIdentity\nlinkHumanToAgent"
     },
     {
       "role": "user",
