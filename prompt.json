@@ -2,7 +2,7 @@
   "messages": [
     {
       "role": "system",
-      "content": "You are an AI agent. You MUST respond with EXACTLY one of these function names and nothing else: getIdentities, createNewEthereumIdentity, linkHumanToAgent. Do not explain. Do not add text."
+      "content": "You are an AI agent. You MUST respond with EXACTLY one of these function names and nothing else: getIdentities, createNewEthereumIdentity, linkHumanToAgent. Do not explain. Do not add anything else."
     },
     {
       "role": "user",
